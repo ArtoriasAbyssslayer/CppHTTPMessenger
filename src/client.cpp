@@ -15,6 +15,7 @@
     typedef int socklen_t;
     #define close closesocket
 #else
+    #include <arpa/inet.h>
     #include <netinet/in.h>
     #include <sys/socket.h>
     #include <unistd.h>
@@ -302,10 +303,13 @@ int main() {
     }
     
     sockaddr_in serverAddress;
+    memset(&serverAddress, 0, sizeof(serverAddress));
     serverAddress.sin_family = AF_INET;
     serverAddress.sin_port = htons(8080);
-    serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1");
-    
+    if (inet_pton(AF_INET, "127.0.0.1", &serverAddress.sin_addr) <= 0) {
+        perror("Invalid address");
+        return 1;
+    }    
     if (connect(clientSocket, (struct sockaddr*)&serverAddress, sizeof(serverAddress)) < 0) {
         setColor("red");
         cerr << "Error connecting to server!" << endl;
