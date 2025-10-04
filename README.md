@@ -2,6 +2,12 @@
 
 A simple terminal-based chat application in C++ that works on Windows and Linux.
 
+### Client side 
+![client_side](https://github.com/ArtoriasAbyssslayer/CppHTTPMessenger/blob/master/assets/client_side_screenshot.png "Client Side")
+### Server side 
+![server_side](https://github.com/ArtoriasAbyssslayer/CppHTTPMessenger/blob/master/assets/server_side_screenshot.png "Server Side")
+### Users file 
+![users_dat](https://github.com/ArtoriasAbyssslayer/CppHTTPMessenger/blob/master/assets/encrypted_passwords_users_dat_file.png "Users.dat")
 ## Build
 
 ### Windows (Visual Studio 2022)
